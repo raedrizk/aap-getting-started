@@ -1,0 +1,9 @@
+---
+- name: Manage rhel packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Make sure that the package is {{ package_state }}
+      ansible.builtin.dnf:
+        name: "{{ package_name }}"
+        state: "{{ package_state }}"
